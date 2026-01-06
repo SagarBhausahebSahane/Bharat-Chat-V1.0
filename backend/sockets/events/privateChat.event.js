@@ -9,10 +9,7 @@ module.exports = function privateChatEvent(io, socket) {
     const receiverSocket = getSocket(to);
 
     if (receiverSocket) {
-      receiverSocket.emit("private-message", {
-        from,
-        message,
-      });
+      receiverSocket.emit("private-message", {from, message});
     } else {
       socket.emit("user-offline", { to });
     }
